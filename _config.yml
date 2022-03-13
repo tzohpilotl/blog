@@ -24,7 +24,7 @@ description: Some notes about programming.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://tzohpilotl.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  tzohpilotl
-destination: docs/
+destination: _site/
 
 # Build settings
 theme: minima
