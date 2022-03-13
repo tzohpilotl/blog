@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Unit Tests In React
 ---
 
@@ -15,7 +15,7 @@ title: Unit Tests In React
 <li>Prevents bug regressions</li>
 <li>Makes code coverage look cool 😎</li>
 </ul>
-<div class="NOTES" id="org54e973e">
+<div class="NOTES" id="orgd3ed24f">
 <p>
 Unit testing is the first tool programmers have to ensure the correctness of
 their programs.
@@ -34,7 +34,7 @@ What makes a unit test a unit test is its scope:
 <p>
 Unit tests should only test one unit a time.
 </p>
-<div class="NOTES" id="orgb3dcfa5">
+<div class="NOTES" id="orgfb34502">
 <p>
 A unit is a diffuse term but it usually refers to a function or a class. A good
 unit test proves the outcome of the unit under test is correct for all it's
@@ -54,7 +54,7 @@ writing unit tests easy.
 <li>Keep in mind the React component ultimate purpose: to generate HTML code</li>
 <li>A component is a unit</li>
 </ul>
-<div class="NOTES" id="org6e9b484">
+<div class="NOTES" id="org6352157">
 <p>
 As in every kind application, React apps benefit from having unit tests, but
 they come with their own set of complications. What's generally accepted though,
@@ -89,32 +89,32 @@ time, for example, when a component is rendered for the first time, or when a
 button has been clicked.
 </p>
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">assert</span> = require<span style="color: #268bd2;">(</span><span style="color: #2aa198;">'assert/strict'</span><span style="color: #268bd2;">)</span>;
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">assert</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'assert/strict'</span><span style="color: #4f97d7;">)</span>;
 
-<span style="color: #268bd2; font-weight: bold;">function</span> <span style="color: #d75fd7; font-weight: bold;">createCounter</span><span style="color: #268bd2;">()</span> <span style="color: #268bd2;">{</span>
-    <span style="color: #268bd2; font-weight: bold;">let</span> <span style="color: #8787d7;">state</span> = <span style="color: #d75fd7;">{</span> count: <span style="color: #d75fd7;">0</span> <span style="color: #d75fd7;">}</span>;
-    <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7;">{</span>
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">createCounter</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">state</span> = <span style="color: #bc6ec5;">{</span> count: <span style="color: #a45bad;">0</span> <span style="color: #bc6ec5;">}</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #bc6ec5;">{</span>
         state,
-        onClick<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
-            state.count += <span style="color: #d75fd7;">1</span>;
-        <span style="color: #2aa198;">}</span>,
-        render<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
-            <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #2aa198;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
-        <span style="color: #2aa198;">}</span>,
-    <span style="color: #d75fd7;">}</span>;
-<span style="color: #268bd2;">}</span>
+        onClick<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
+            state.count += <span style="color: #a45bad;">1</span>;
+        <span style="color: #2d9574;">}</span>,
+        render<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
+            <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
+        <span style="color: #2d9574;">}</span>,
+    <span style="color: #bc6ec5;">}</span>;
+<span style="color: #4f97d7;">}</span>
 
-<span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">counter</span> = createCounter<span style="color: #268bd2;">()</span>;
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">counter</span> = createCounter<span style="color: #4f97d7;">()</span>;
 
-assert.equal<span style="color: #268bd2;">(</span>counter.state.count, <span style="color: #d75fd7;">0</span><span style="color: #268bd2;">)</span>;
+assert.equal<span style="color: #4f97d7;">(</span>counter.state.count, <span style="color: #a45bad;">0</span><span style="color: #4f97d7;">)</span>;
 
-counter.onClick<span style="color: #268bd2;">()</span>;
+counter.onClick<span style="color: #4f97d7;">()</span>;
 
-assert.equal<span style="color: #268bd2;">(</span>counter.state.count, <span style="color: #d75fd7;">1</span><span style="color: #268bd2;">)</span>;
+assert.equal<span style="color: #4f97d7;">(</span>counter.state.count, <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>;
 </pre>
 </div>
 
-<div class="NOTES" id="org585fe47">
+<div class="NOTES" id="org593e195">
 <p>
 My guess is we do this because when we debug we usually make sure the state is
 correct step by step during the execution of our program.
@@ -140,32 +140,32 @@ it's designed to deliver. In React, this means we should test a component
 delivers the desired HTML code given a known context.
 </p>
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">assert</span> = require<span style="color: #268bd2;">(</span><span style="color: #2aa198;">'assert/strict'</span><span style="color: #268bd2;">)</span>;
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">assert</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'assert/strict'</span><span style="color: #4f97d7;">)</span>;
 
-<span style="color: #268bd2; font-weight: bold;">function</span> <span style="color: #d75fd7; font-weight: bold;">createCounter</span><span style="color: #268bd2;">()</span> <span style="color: #268bd2;">{</span>
-    <span style="color: #268bd2; font-weight: bold;">let</span> <span style="color: #8787d7;">state</span> = <span style="color: #d75fd7;">{</span> count: <span style="color: #d75fd7;">0</span> <span style="color: #d75fd7;">}</span>;
-    <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7;">{</span>
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">createCounter</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">state</span> = <span style="color: #bc6ec5;">{</span> count: <span style="color: #a45bad;">0</span> <span style="color: #bc6ec5;">}</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #bc6ec5;">{</span>
         state,
-        onClick<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
-            state.count += <span style="color: #d75fd7;">1</span>;
-        <span style="color: #2aa198;">}</span>,
-        render<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
-            <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #2aa198;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
-        <span style="color: #2aa198;">}</span>,
-    <span style="color: #d75fd7;">}</span>;
-<span style="color: #268bd2;">}</span>
+        onClick<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
+            state.count += <span style="color: #a45bad;">1</span>;
+        <span style="color: #2d9574;">}</span>,
+        render<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
+            <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
+        <span style="color: #2d9574;">}</span>,
+    <span style="color: #bc6ec5;">}</span>;
+<span style="color: #4f97d7;">}</span>
 
-<span style="color: #268bd2; font-weight: bold;">function</span> <span style="color: #d75fd7; font-weight: bold;">getInnerText</span><span style="color: #268bd2;">(</span><span style="color: #8787d7;">html</span><span style="color: #268bd2;">)</span> <span style="color: #268bd2;">{</span>
-    <span style="color: #268bd2; font-weight: bold;">return</span> html.replace<span style="color: #d75fd7;">(</span><span style="color: #2aa198;">/\&lt;p\&gt;|\&lt;\/p\&gt;/</span>gi, <span style="color: #2aa198;">''</span><span style="color: #d75fd7;">)</span>;
-<span style="color: #268bd2;">}</span>
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">getInnerText</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">html</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">return</span> html.replace<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">/\&lt;p\&gt;|\&lt;\/p\&gt;/</span>gi, <span style="color: #2d9574;">''</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
 
-<span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">counter</span> = createCounter<span style="color: #268bd2;">()</span>;
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">counter</span> = createCounter<span style="color: #4f97d7;">()</span>;
 
-assert.equal<span style="color: #268bd2;">(</span>getInnerText<span style="color: #d75fd7;">(</span>counter.render<span style="color: #2aa198;">()</span><span style="color: #d75fd7;">)</span>, <span style="color: #2aa198;">`Clicked 0`</span><span style="color: #268bd2;">)</span>;
+assert.equal<span style="color: #4f97d7;">(</span>getInnerText<span style="color: #bc6ec5;">(</span>counter.render<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">)</span>, <span style="color: #2d9574;">`Clicked 0`</span><span style="color: #4f97d7;">)</span>;
 
-counter.onClick<span style="color: #268bd2;">()</span>;
+counter.onClick<span style="color: #4f97d7;">()</span>;
 
-assert.equal<span style="color: #268bd2;">(</span>getInnerText<span style="color: #d75fd7;">(</span>counter.render<span style="color: #2aa198;">()</span><span style="color: #d75fd7;">)</span>, <span style="color: #2aa198;">`Clicked 1`</span><span style="color: #268bd2;">)</span>;
+assert.equal<span style="color: #4f97d7;">(</span>getInnerText<span style="color: #bc6ec5;">(</span>counter.render<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">)</span>, <span style="color: #2d9574;">`Clicked 1`</span><span style="color: #4f97d7;">)</span>;
 </pre>
 </div>
 </div>
@@ -182,18 +182,18 @@ purpose.
 Let's examine the <code>counter</code> component.
 </p>
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #268bd2; font-weight: bold;">function</span> <span style="color: #d75fd7; font-weight: bold;">createCounter</span><span style="color: #268bd2;">()</span> <span style="color: #268bd2;">{</span>
-    <span style="color: #268bd2; font-weight: bold;">let</span> <span style="color: #8787d7;">state</span> = <span style="color: #d75fd7;">{</span> count: <span style="color: #d75fd7;">0</span> <span style="color: #d75fd7;">}</span>;
-    <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7;">{</span>
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">createCounter</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">state</span> = <span style="color: #bc6ec5;">{</span> count: <span style="color: #a45bad;">0</span> <span style="color: #bc6ec5;">}</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #bc6ec5;">{</span>
         state,
-        onClick<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
-            state.count += <span style="color: #d75fd7;">1</span>;
-        <span style="color: #2aa198;">}</span>,
-        render<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
-            <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #2aa198;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
-        <span style="color: #2aa198;">}</span>,
-    <span style="color: #d75fd7;">}</span>;
-<span style="color: #268bd2;">}</span>
+        onClick<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
+            state.count += <span style="color: #a45bad;">1</span>;
+        <span style="color: #2d9574;">}</span>,
+        render<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
+            <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
+        <span style="color: #2d9574;">}</span>,
+    <span style="color: #bc6ec5;">}</span>;
+<span style="color: #4f97d7;">}</span>
 </pre>
 </div>
 <p>
@@ -237,12 +237,12 @@ In general, test robustness increases when we test outcomes instead of state.
 <h2 id="org8274060"><span class="section-number-2">4.</span> When To Test The Redux <code>connect</code> HOC</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org46234ad" class="outline-3">
-<h3 id="org46234ad"><span class="section-number-3">4.1.</span> Abstract Test Value</h3>
+<div id="outline-container-org3464608" class="outline-3">
+<h3 id="org3464608"><span class="section-number-3">4.1.</span> Abstract Test Value</h3>
 <div class="outline-text-3" id="text-4-1">
 </div>
-<div id="outline-container-org9b1d93f" class="outline-4">
-<h4 id="org9b1d93f"><span class="section-number-4">4.1.1.</span> Does it render?</h4>
+<div id="outline-container-orgd4a591e" class="outline-4">
+<h4 id="orgd4a591e"><span class="section-number-4">4.1.1.</span> Does it render?</h4>
 </div>
 <div id="outline-container-org3748e42" class="outline-4">
 <h4 id="org3748e42"><span class="section-number-4">4.1.2.</span> Does it generate the desired <code>props</code>?</h4>
@@ -256,12 +256,12 @@ In general, test robustness increases when we test outcomes instead of state.
 <h2 id="org39e840d"><span class="section-number-2">5.</span> How To Test React Components</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orga5656d9" class="outline-3">
-<h3 id="orga5656d9"><span class="section-number-3">5.1.</span> Abstract Test Value</h3>
+<div id="outline-container-org5673fdd" class="outline-3">
+<h3 id="org5673fdd"><span class="section-number-3">5.1.</span> Abstract Test Value</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-org1b06f16" class="outline-4">
-<h4 id="org1b06f16"><span class="section-number-4">5.1.1.</span> Does it render?</h4>
+<div id="outline-container-org9c2232b" class="outline-4">
+<h4 id="org9c2232b"><span class="section-number-4">5.1.1.</span> Does it render?</h4>
 </div>
 <div id="outline-container-org1c20b3d" class="outline-4">
 <h4 id="org1c20b3d"><span class="section-number-4">5.1.2.</span> Does it generate the desired HTML?</h4>

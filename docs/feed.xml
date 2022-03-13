@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2022-03-10T17:15:46-06:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Notes On Programming</title><subtitle>Some notes about programming.</subtitle><entry><title type="html">Unit Tests In React</title><link href="http://localhost:4000/blog/2022/03/10/unit-tests-in-react.html" rel="alternate" type="text/html" title="Unit Tests In React" /><published>2022-03-10T00:00:00-06:00</published><updated>2022-03-10T00:00:00-06:00</updated><id>http://localhost:4000/blog/2022/03/10/unit-tests-in-react</id><content type="html" xml:base="http://localhost:4000/blog/2022/03/10/unit-tests-in-react.html">&lt;div id=&quot;outline-container-org453b9f2&quot; class=&quot;outline-2&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2022-03-13T09:27:17-06:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Notes On Programming</title><subtitle>Some notes about programming.</subtitle><entry><title type="html">Unit Tests In React</title><link href="http://localhost:4000/blog/2022/03/10/unit-tests-in-react.html" rel="alternate" type="text/html" title="Unit Tests In React" /><published>2022-03-10T00:00:00-06:00</published><updated>2022-03-10T00:00:00-06:00</updated><id>http://localhost:4000/blog/2022/03/10/unit-tests-in-react</id><content type="html" xml:base="http://localhost:4000/blog/2022/03/10/unit-tests-in-react.html">&lt;div id=&quot;outline-container-org453b9f2&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;org453b9f2&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; Context&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 &lt;/div&gt;
@@ -10,7 +10,7 @@
 &lt;li&gt;Prevents bug regressions&lt;/li&gt;
 &lt;li&gt;Makes code coverage look cool 😎&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&quot;NOTES&quot; id=&quot;org54e973e&quot;&gt;
+&lt;div class=&quot;NOTES&quot; id=&quot;orgd3ed24f&quot;&gt;
 &lt;p&gt;
 Unit testing is the first tool programmers have to ensure the correctness of
 their programs.
@@ -29,7 +29,7 @@ What makes a unit test a unit test is its scope:
 &lt;p&gt;
 Unit tests should only test one unit a time.
 &lt;/p&gt;
-&lt;div class=&quot;NOTES&quot; id=&quot;orgb3dcfa5&quot;&gt;
+&lt;div class=&quot;NOTES&quot; id=&quot;orgfb34502&quot;&gt;
 &lt;p&gt;
 A unit is a diffuse term but it usually refers to a function or a class. A good
 unit test proves the outcome of the unit under test is correct for all it&apos;s
@@ -49,7 +49,7 @@ writing unit tests easy.
 &lt;li&gt;Keep in mind the React component ultimate purpose: to generate HTML code&lt;/li&gt;
 &lt;li&gt;A component is a unit&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&quot;NOTES&quot; id=&quot;org6e9b484&quot;&gt;
+&lt;div class=&quot;NOTES&quot; id=&quot;org6352157&quot;&gt;
 &lt;p&gt;
 As in every kind application, React apps benefit from having unit tests, but
 they come with their own set of complications. What&apos;s generally accepted though,
@@ -84,32 +84,32 @@ time, for example, when a component is rendered for the first time, or when a
 button has been clicked.
 &lt;/p&gt;
 &lt;div class=&quot;org-src-container&quot;&gt;
-&lt;pre class=&quot;src src-js&quot;&gt;&lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #8787d7;&quot;&gt;assert&lt;/span&gt; = require&lt;span style=&quot;color: #268bd2;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #2aa198;&quot;&gt;&apos;assert/strict&apos;&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;)&lt;/span&gt;;
+&lt;pre class=&quot;src src-js&quot;&gt;&lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #7590db;&quot;&gt;assert&lt;/span&gt; = require&lt;span style=&quot;color: #4f97d7;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #2d9574;&quot;&gt;&apos;assert/strict&apos;&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;)&lt;/span&gt;;
 
-&lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #d75fd7; font-weight: bold;&quot;&gt;createCounter&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #268bd2;&quot;&gt;{&lt;/span&gt;
-    &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;let&lt;/span&gt; &lt;span style=&quot;color: #8787d7;&quot;&gt;state&lt;/span&gt; = &lt;span style=&quot;color: #d75fd7;&quot;&gt;{&lt;/span&gt; count: &lt;span style=&quot;color: #d75fd7;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #d75fd7;&quot;&gt;}&lt;/span&gt;;
-    &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #d75fd7;&quot;&gt;{&lt;/span&gt;
+&lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5; font-weight: bold;&quot;&gt;createCounter&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #4f97d7;&quot;&gt;{&lt;/span&gt;
+    &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;let&lt;/span&gt; &lt;span style=&quot;color: #7590db;&quot;&gt;state&lt;/span&gt; = &lt;span style=&quot;color: #bc6ec5;&quot;&gt;{&lt;/span&gt; count: &lt;span style=&quot;color: #a45bad;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5;&quot;&gt;}&lt;/span&gt;;
+    &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5;&quot;&gt;{&lt;/span&gt;
         state,
-        onClick&lt;span style=&quot;color: #2aa198;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;{&lt;/span&gt;
-            state.count += &lt;span style=&quot;color: #d75fd7;&quot;&gt;1&lt;/span&gt;;
-        &lt;span style=&quot;color: #2aa198;&quot;&gt;}&lt;/span&gt;,
-        render&lt;span style=&quot;color: #2aa198;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;{&lt;/span&gt;
-            &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;`&amp;lt;p&amp;gt;Clicked ${state.count}&amp;lt;/p&amp;gt;`&lt;/span&gt;;
-        &lt;span style=&quot;color: #2aa198;&quot;&gt;}&lt;/span&gt;,
-    &lt;span style=&quot;color: #d75fd7;&quot;&gt;}&lt;/span&gt;;
-&lt;span style=&quot;color: #268bd2;&quot;&gt;}&lt;/span&gt;
+        onClick&lt;span style=&quot;color: #2d9574;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;{&lt;/span&gt;
+            state.count += &lt;span style=&quot;color: #a45bad;&quot;&gt;1&lt;/span&gt;;
+        &lt;span style=&quot;color: #2d9574;&quot;&gt;}&lt;/span&gt;,
+        render&lt;span style=&quot;color: #2d9574;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;{&lt;/span&gt;
+            &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;`&amp;lt;p&amp;gt;Clicked ${state.count}&amp;lt;/p&amp;gt;`&lt;/span&gt;;
+        &lt;span style=&quot;color: #2d9574;&quot;&gt;}&lt;/span&gt;,
+    &lt;span style=&quot;color: #bc6ec5;&quot;&gt;}&lt;/span&gt;;
+&lt;span style=&quot;color: #4f97d7;&quot;&gt;}&lt;/span&gt;
 
-&lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #8787d7;&quot;&gt;counter&lt;/span&gt; = createCounter&lt;span style=&quot;color: #268bd2;&quot;&gt;()&lt;/span&gt;;
+&lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #7590db;&quot;&gt;counter&lt;/span&gt; = createCounter&lt;span style=&quot;color: #4f97d7;&quot;&gt;()&lt;/span&gt;;
 
-assert.equal&lt;span style=&quot;color: #268bd2;&quot;&gt;(&lt;/span&gt;counter.state.count, &lt;span style=&quot;color: #d75fd7;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;)&lt;/span&gt;;
+assert.equal&lt;span style=&quot;color: #4f97d7;&quot;&gt;(&lt;/span&gt;counter.state.count, &lt;span style=&quot;color: #a45bad;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;)&lt;/span&gt;;
 
-counter.onClick&lt;span style=&quot;color: #268bd2;&quot;&gt;()&lt;/span&gt;;
+counter.onClick&lt;span style=&quot;color: #4f97d7;&quot;&gt;()&lt;/span&gt;;
 
-assert.equal&lt;span style=&quot;color: #268bd2;&quot;&gt;(&lt;/span&gt;counter.state.count, &lt;span style=&quot;color: #d75fd7;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;)&lt;/span&gt;;
+assert.equal&lt;span style=&quot;color: #4f97d7;&quot;&gt;(&lt;/span&gt;counter.state.count, &lt;span style=&quot;color: #a45bad;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;)&lt;/span&gt;;
 &lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;NOTES&quot; id=&quot;org585fe47&quot;&gt;
+&lt;div class=&quot;NOTES&quot; id=&quot;org593e195&quot;&gt;
 &lt;p&gt;
 My guess is we do this because when we debug we usually make sure the state is
 correct step by step during the execution of our program.
@@ -135,32 +135,32 @@ it&apos;s designed to deliver. In React, this means we should test a component
 delivers the desired HTML code given a known context.
 &lt;/p&gt;
 &lt;div class=&quot;org-src-container&quot;&gt;
-&lt;pre class=&quot;src src-js&quot;&gt;&lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #8787d7;&quot;&gt;assert&lt;/span&gt; = require&lt;span style=&quot;color: #268bd2;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #2aa198;&quot;&gt;&apos;assert/strict&apos;&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;)&lt;/span&gt;;
+&lt;pre class=&quot;src src-js&quot;&gt;&lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #7590db;&quot;&gt;assert&lt;/span&gt; = require&lt;span style=&quot;color: #4f97d7;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #2d9574;&quot;&gt;&apos;assert/strict&apos;&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;)&lt;/span&gt;;
 
-&lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #d75fd7; font-weight: bold;&quot;&gt;createCounter&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #268bd2;&quot;&gt;{&lt;/span&gt;
-    &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;let&lt;/span&gt; &lt;span style=&quot;color: #8787d7;&quot;&gt;state&lt;/span&gt; = &lt;span style=&quot;color: #d75fd7;&quot;&gt;{&lt;/span&gt; count: &lt;span style=&quot;color: #d75fd7;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #d75fd7;&quot;&gt;}&lt;/span&gt;;
-    &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #d75fd7;&quot;&gt;{&lt;/span&gt;
+&lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5; font-weight: bold;&quot;&gt;createCounter&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #4f97d7;&quot;&gt;{&lt;/span&gt;
+    &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;let&lt;/span&gt; &lt;span style=&quot;color: #7590db;&quot;&gt;state&lt;/span&gt; = &lt;span style=&quot;color: #bc6ec5;&quot;&gt;{&lt;/span&gt; count: &lt;span style=&quot;color: #a45bad;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5;&quot;&gt;}&lt;/span&gt;;
+    &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5;&quot;&gt;{&lt;/span&gt;
         state,
-        onClick&lt;span style=&quot;color: #2aa198;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;{&lt;/span&gt;
-            state.count += &lt;span style=&quot;color: #d75fd7;&quot;&gt;1&lt;/span&gt;;
-        &lt;span style=&quot;color: #2aa198;&quot;&gt;}&lt;/span&gt;,
-        render&lt;span style=&quot;color: #2aa198;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;{&lt;/span&gt;
-            &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;`&amp;lt;p&amp;gt;Clicked ${state.count}&amp;lt;/p&amp;gt;`&lt;/span&gt;;
-        &lt;span style=&quot;color: #2aa198;&quot;&gt;}&lt;/span&gt;,
-    &lt;span style=&quot;color: #d75fd7;&quot;&gt;}&lt;/span&gt;;
-&lt;span style=&quot;color: #268bd2;&quot;&gt;}&lt;/span&gt;
+        onClick&lt;span style=&quot;color: #2d9574;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;{&lt;/span&gt;
+            state.count += &lt;span style=&quot;color: #a45bad;&quot;&gt;1&lt;/span&gt;;
+        &lt;span style=&quot;color: #2d9574;&quot;&gt;}&lt;/span&gt;,
+        render&lt;span style=&quot;color: #2d9574;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;{&lt;/span&gt;
+            &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;`&amp;lt;p&amp;gt;Clicked ${state.count}&amp;lt;/p&amp;gt;`&lt;/span&gt;;
+        &lt;span style=&quot;color: #2d9574;&quot;&gt;}&lt;/span&gt;,
+    &lt;span style=&quot;color: #bc6ec5;&quot;&gt;}&lt;/span&gt;;
+&lt;span style=&quot;color: #4f97d7;&quot;&gt;}&lt;/span&gt;
 
-&lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #d75fd7; font-weight: bold;&quot;&gt;getInnerText&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #8787d7;&quot;&gt;html&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;)&lt;/span&gt; &lt;span style=&quot;color: #268bd2;&quot;&gt;{&lt;/span&gt;
-    &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;return&lt;/span&gt; html.replace&lt;span style=&quot;color: #d75fd7;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #2aa198;&quot;&gt;/\&amp;lt;p\&amp;gt;|\&amp;lt;\/p\&amp;gt;/&lt;/span&gt;gi, &lt;span style=&quot;color: #2aa198;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span style=&quot;color: #d75fd7;&quot;&gt;)&lt;/span&gt;;
-&lt;span style=&quot;color: #268bd2;&quot;&gt;}&lt;/span&gt;
+&lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5; font-weight: bold;&quot;&gt;getInnerText&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #7590db;&quot;&gt;html&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;)&lt;/span&gt; &lt;span style=&quot;color: #4f97d7;&quot;&gt;{&lt;/span&gt;
+    &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;return&lt;/span&gt; html.replace&lt;span style=&quot;color: #bc6ec5;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #2d9574;&quot;&gt;/\&amp;lt;p\&amp;gt;|\&amp;lt;\/p\&amp;gt;/&lt;/span&gt;gi, &lt;span style=&quot;color: #2d9574;&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span style=&quot;color: #bc6ec5;&quot;&gt;)&lt;/span&gt;;
+&lt;span style=&quot;color: #4f97d7;&quot;&gt;}&lt;/span&gt;
 
-&lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #8787d7;&quot;&gt;counter&lt;/span&gt; = createCounter&lt;span style=&quot;color: #268bd2;&quot;&gt;()&lt;/span&gt;;
+&lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #7590db;&quot;&gt;counter&lt;/span&gt; = createCounter&lt;span style=&quot;color: #4f97d7;&quot;&gt;()&lt;/span&gt;;
 
-assert.equal&lt;span style=&quot;color: #268bd2;&quot;&gt;(&lt;/span&gt;getInnerText&lt;span style=&quot;color: #d75fd7;&quot;&gt;(&lt;/span&gt;counter.render&lt;span style=&quot;color: #2aa198;&quot;&gt;()&lt;/span&gt;&lt;span style=&quot;color: #d75fd7;&quot;&gt;)&lt;/span&gt;, &lt;span style=&quot;color: #2aa198;&quot;&gt;`Clicked 0`&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;)&lt;/span&gt;;
+assert.equal&lt;span style=&quot;color: #4f97d7;&quot;&gt;(&lt;/span&gt;getInnerText&lt;span style=&quot;color: #bc6ec5;&quot;&gt;(&lt;/span&gt;counter.render&lt;span style=&quot;color: #2d9574;&quot;&gt;()&lt;/span&gt;&lt;span style=&quot;color: #bc6ec5;&quot;&gt;)&lt;/span&gt;, &lt;span style=&quot;color: #2d9574;&quot;&gt;`Clicked 0`&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;)&lt;/span&gt;;
 
-counter.onClick&lt;span style=&quot;color: #268bd2;&quot;&gt;()&lt;/span&gt;;
+counter.onClick&lt;span style=&quot;color: #4f97d7;&quot;&gt;()&lt;/span&gt;;
 
-assert.equal&lt;span style=&quot;color: #268bd2;&quot;&gt;(&lt;/span&gt;getInnerText&lt;span style=&quot;color: #d75fd7;&quot;&gt;(&lt;/span&gt;counter.render&lt;span style=&quot;color: #2aa198;&quot;&gt;()&lt;/span&gt;&lt;span style=&quot;color: #d75fd7;&quot;&gt;)&lt;/span&gt;, &lt;span style=&quot;color: #2aa198;&quot;&gt;`Clicked 1`&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;)&lt;/span&gt;;
+assert.equal&lt;span style=&quot;color: #4f97d7;&quot;&gt;(&lt;/span&gt;getInnerText&lt;span style=&quot;color: #bc6ec5;&quot;&gt;(&lt;/span&gt;counter.render&lt;span style=&quot;color: #2d9574;&quot;&gt;()&lt;/span&gt;&lt;span style=&quot;color: #bc6ec5;&quot;&gt;)&lt;/span&gt;, &lt;span style=&quot;color: #2d9574;&quot;&gt;`Clicked 1`&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;)&lt;/span&gt;;
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -177,18 +177,18 @@ purpose.
 Let&apos;s examine the &lt;code&gt;counter&lt;/code&gt; component.
 &lt;/p&gt;
 &lt;div class=&quot;org-src-container&quot;&gt;
-&lt;pre class=&quot;src src-js&quot;&gt;&lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #d75fd7; font-weight: bold;&quot;&gt;createCounter&lt;/span&gt;&lt;span style=&quot;color: #268bd2;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #268bd2;&quot;&gt;{&lt;/span&gt;
-    &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;let&lt;/span&gt; &lt;span style=&quot;color: #8787d7;&quot;&gt;state&lt;/span&gt; = &lt;span style=&quot;color: #d75fd7;&quot;&gt;{&lt;/span&gt; count: &lt;span style=&quot;color: #d75fd7;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #d75fd7;&quot;&gt;}&lt;/span&gt;;
-    &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #d75fd7;&quot;&gt;{&lt;/span&gt;
+&lt;pre class=&quot;src src-js&quot;&gt;&lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;function&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5; font-weight: bold;&quot;&gt;createCounter&lt;/span&gt;&lt;span style=&quot;color: #4f97d7;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #4f97d7;&quot;&gt;{&lt;/span&gt;
+    &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;let&lt;/span&gt; &lt;span style=&quot;color: #7590db;&quot;&gt;state&lt;/span&gt; = &lt;span style=&quot;color: #bc6ec5;&quot;&gt;{&lt;/span&gt; count: &lt;span style=&quot;color: #a45bad;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5;&quot;&gt;}&lt;/span&gt;;
+    &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #bc6ec5;&quot;&gt;{&lt;/span&gt;
         state,
-        onClick&lt;span style=&quot;color: #2aa198;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;{&lt;/span&gt;
-            state.count += &lt;span style=&quot;color: #d75fd7;&quot;&gt;1&lt;/span&gt;;
-        &lt;span style=&quot;color: #2aa198;&quot;&gt;}&lt;/span&gt;,
-        render&lt;span style=&quot;color: #2aa198;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;{&lt;/span&gt;
-            &lt;span style=&quot;color: #268bd2; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #2aa198;&quot;&gt;`&amp;lt;p&amp;gt;Clicked ${state.count}&amp;lt;/p&amp;gt;`&lt;/span&gt;;
-        &lt;span style=&quot;color: #2aa198;&quot;&gt;}&lt;/span&gt;,
-    &lt;span style=&quot;color: #d75fd7;&quot;&gt;}&lt;/span&gt;;
-&lt;span style=&quot;color: #268bd2;&quot;&gt;}&lt;/span&gt;
+        onClick&lt;span style=&quot;color: #2d9574;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;{&lt;/span&gt;
+            state.count += &lt;span style=&quot;color: #a45bad;&quot;&gt;1&lt;/span&gt;;
+        &lt;span style=&quot;color: #2d9574;&quot;&gt;}&lt;/span&gt;,
+        render&lt;span style=&quot;color: #2d9574;&quot;&gt;()&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;{&lt;/span&gt;
+            &lt;span style=&quot;color: #4f97d7; font-weight: bold;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #2d9574;&quot;&gt;`&amp;lt;p&amp;gt;Clicked ${state.count}&amp;lt;/p&amp;gt;`&lt;/span&gt;;
+        &lt;span style=&quot;color: #2d9574;&quot;&gt;}&lt;/span&gt;,
+    &lt;span style=&quot;color: #bc6ec5;&quot;&gt;}&lt;/span&gt;;
+&lt;span style=&quot;color: #4f97d7;&quot;&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;
@@ -232,12 +232,12 @@ In general, test robustness increases when we test outcomes instead of state.
 &lt;h2 id=&quot;org8274060&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4.&lt;/span&gt; When To Test The Redux &lt;code&gt;connect&lt;/code&gt; HOC&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
 &lt;/div&gt;
-&lt;div id=&quot;outline-container-org46234ad&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;org46234ad&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;4.1.&lt;/span&gt; Abstract Test Value&lt;/h3&gt;
+&lt;div id=&quot;outline-container-org3464608&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org3464608&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;4.1.&lt;/span&gt; Abstract Test Value&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-4-1&quot;&gt;
 &lt;/div&gt;
-&lt;div id=&quot;outline-container-org9b1d93f&quot; class=&quot;outline-4&quot;&gt;
-&lt;h4 id=&quot;org9b1d93f&quot;&gt;&lt;span class=&quot;section-number-4&quot;&gt;4.1.1.&lt;/span&gt; Does it render?&lt;/h4&gt;
+&lt;div id=&quot;outline-container-orgd4a591e&quot; class=&quot;outline-4&quot;&gt;
+&lt;h4 id=&quot;orgd4a591e&quot;&gt;&lt;span class=&quot;section-number-4&quot;&gt;4.1.1.&lt;/span&gt; Does it render?&lt;/h4&gt;
 &lt;/div&gt;
 &lt;div id=&quot;outline-container-org3748e42&quot; class=&quot;outline-4&quot;&gt;
 &lt;h4 id=&quot;org3748e42&quot;&gt;&lt;span class=&quot;section-number-4&quot;&gt;4.1.2.&lt;/span&gt; Does it generate the desired &lt;code&gt;props&lt;/code&gt;?&lt;/h4&gt;
@@ -251,12 +251,12 @@ In general, test robustness increases when we test outcomes instead of state.
 &lt;h2 id=&quot;org39e840d&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;5.&lt;/span&gt; How To Test React Components&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
 &lt;/div&gt;
-&lt;div id=&quot;outline-container-orga5656d9&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;orga5656d9&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;5.1.&lt;/span&gt; Abstract Test Value&lt;/h3&gt;
+&lt;div id=&quot;outline-container-org5673fdd&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org5673fdd&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;5.1.&lt;/span&gt; Abstract Test Value&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-5-1&quot;&gt;
 &lt;/div&gt;
-&lt;div id=&quot;outline-container-org1b06f16&quot; class=&quot;outline-4&quot;&gt;
-&lt;h4 id=&quot;org1b06f16&quot;&gt;&lt;span class=&quot;section-number-4&quot;&gt;5.1.1.&lt;/span&gt; Does it render?&lt;/h4&gt;
+&lt;div id=&quot;outline-container-org9c2232b&quot; class=&quot;outline-4&quot;&gt;
+&lt;h4 id=&quot;org9c2232b&quot;&gt;&lt;span class=&quot;section-number-4&quot;&gt;5.1.1.&lt;/span&gt; Does it render?&lt;/h4&gt;
 &lt;/div&gt;
 &lt;div id=&quot;outline-container-org1c20b3d&quot; class=&quot;outline-4&quot;&gt;
 &lt;h4 id=&quot;org1c20b3d&quot;&gt;&lt;span class=&quot;section-number-4&quot;&gt;5.1.2.&lt;/span&gt; Does it generate the desired HTML?&lt;/h4&gt;

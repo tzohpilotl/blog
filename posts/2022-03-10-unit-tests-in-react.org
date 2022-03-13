@@ -1,6 +1,6 @@
 #+BEGIN_EXPORT html
 ---
-layout: default
+layout: post
 title: Unit Tests In React
 ---
 #+END_EXPORT
