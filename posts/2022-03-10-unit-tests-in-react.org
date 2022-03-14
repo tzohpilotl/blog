@@ -162,16 +162,131 @@ purpose), ask the following questions:
 - What happens if we change the word "Clicked" for "Clidkec" in the render method?
  
 In general, test robustness increases when we test outcomes instead of state.
-* When To Test The Redux =connect= HOC
+* When To Test The Redux ~connect~ HOC
+Redux is a wonderful state management solution that happens to work pretty well
+when combined with React using the ~react-redux~ package. The package provides
+the ~connect~ HOC which does what its name implies. When we test a component
+like this:
+#+BEGIN_SRC javascript
+  import React from 'react';
+  import { connect } from 'react-redux';
+
+  const Prompt = ({ name }) => (<p>{`Hello ${name}!`}</p>);
+
+  const mapStateToProps = (state) => ({ name: state.name });
+
+  export default connect(mapStateToProps)(Prompt);
+#+END_SRC
+we end up testing 2 things instead of one, making our tests more complex and
+brittle than they needed to be.
 ** Abstract Test Value
 *** Does it render?
-*** Does it generate the desired =props=?
-** Testing the =mapStateToProps= function
+One of the most common unit tests there are, are the ones that check the
+component actually renders with a given set of valid props. If we test the
+default export from the component above, we will end up testing that our Redux
+setup works (either the real deal or a mocked store), that the connect HOC
+doesn't have any logic errors, and that the actual component (~Prompt~) works.
+To simplify this test, we should export the ~Prompt~ component separately and
+test it in isolation with different props combinations.
+*** Does it generate the desired ~props~?
+When we have connected components there's something else beside rendering
+success that could be considered fundamental: testing the main component is
+getting the props it needs. Most of the time, the logic in the ~mapStateToProps~
+function is pretty simple, as it should, thus, writing tests for it should be
+similarily simple. We have to remember exporting it by itself and testing it
+with different inputs to ensure it generates the necessary props.
 * How To Test React Components
+By adhering to the principle of testing purpose instead of state, we will see
+more clearly the tests a component needs, when using the right tools for the job.
 ** Abstract Test Value
 *** Does it render?
+Even when successful rendering is implied in other tests, because a component
+wouldn't fulfill its purpose if it didn't render in the first place, I like
+adding this basic unit test; it is mandatory if you're doing TDD. Now that we
+separated the notion of Redux adapter and React component, we know that we
+should export the component separately and test it in isolation.
 *** Does it generate the desired HTML?
+Since we control the props we pass to the component while testing, we can assume
+they will be right, so no need to double check them. The purpose of a React
+component is to generate HTML, we should be looking at the DOM or virtual DOM
+for the expected HTML code.
+
+This means that if we have a component like this:
+#+BEGIN_SRC javascript
+  import React from 'react';
+  import { connect } from 'react-redux';
+
+  export const Prompt = ({ name }) => (<p>{`Hello ${name}!`}</p>);
+
+  const mapStateToProps = (state) => ({ name: state.name });
+
+  export default connect(mapStateToProps)(Prompt);
+#+END_SRC
+Our most simple test would look like this:
+#+BEGIN_SRC javascript
+  import React from 'react';
+  import { render } from '@testing-library/react';
+  import { Prompt } from './Prompt';
+
+  describe("<Prompt />", () => {
+    describe("when provided complete and valid props", () => {
+      it("renders correctly", () => {
+        const name = "Mario";
+        const wrapper = render(<Prompt name={name} />);
+        expect(wrapper.findByText(name)).toBeInTheDocument();
+      });
+    });
+  });
+#+END_SRC
 ** Testing The Outcomes
+Now assume a little more complex component:
+#+BEGIN_SRC javascript
+  import React, { useState } from 'react';
+  import { connect } from 'react-redux';
+
+  export const Prompt = ({ name }) => {
+    const [loggedIn, setLoggedIn] = useState(false);
+    return (<>
+      <p>{loggedIn ? `Hello ${name}!` : "Hello stranger"}</p>
+      <button onClick={() => setLoggedIn(!loggedIn)}>click</button>;
+    </>);
+  };
+
+  const mapStateToProps = (state) => ({ name: state.name });
+
+  export default connect(mapStateToProps)(Prompt);
+#+END_SRC
+
+The following test would excercise both logic branches:
+#+BEGIN_SRC javascript
+  import React from 'react';
+  import userEvent from '@testing-library/user-event';
+  import { render } from '@testing-library/react';
+  import { Prompt } from './Prompt';
+
+  describe("<Prompt />", () => {
+    describe("when provided complete and valid props", () => {
+      it("renders correctly", () => {
+        const name = "Mario";
+        const wrapper = render(<Prompt name={name} />);
+        expect(wrapper.findByText(name)).toBeInTheDocument();
+      });
+
+      it("has a generic greeting", () => {
+        const name = "Mario";
+        const wrapper = render(<Prompt name={name} />);
+        expect(wrapper.findByText(/stranger/)).toBeInTheDocument();
+      });
+
+      describe("when the button is clicked once", () => {
+        const name = "Mario";
+        const wrapper = render(<Prompt name={name} />);
+        userEvent.click(wrapper.findByText(/click/));
+        expect(wrapper.findByText(name)).toBeInTheDocument();
+      });
+    });
+  });
+#+END_SRC
 * Final Words
 :PROPERTIES:
 :UNNUMBERED: notoc

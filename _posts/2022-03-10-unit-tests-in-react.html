@@ -15,7 +15,7 @@ title: Unit Tests In React
 <li>Prevents bug regressions</li>
 <li>Makes code coverage look cool 😎</li>
 </ul>
-<div class="NOTES" id="orgd3ed24f">
+<div class="NOTES" id="org3bf8533">
 <p>
 Unit testing is the first tool programmers have to ensure the correctness of
 their programs.
@@ -34,7 +34,7 @@ What makes a unit test a unit test is its scope:
 <p>
 Unit tests should only test one unit a time.
 </p>
-<div class="NOTES" id="orgfb34502">
+<div class="NOTES" id="org7887c28">
 <p>
 A unit is a diffuse term but it usually refers to a function or a class. A good
 unit test proves the outcome of the unit under test is correct for all it's
@@ -54,7 +54,7 @@ writing unit tests easy.
 <li>Keep in mind the React component ultimate purpose: to generate HTML code</li>
 <li>A component is a unit</li>
 </ul>
-<div class="NOTES" id="org6352157">
+<div class="NOTES" id="org0f13ccb">
 <p>
 As in every kind application, React apps benefit from having unit tests, but
 they come with their own set of complications. What's generally accepted though,
@@ -89,32 +89,32 @@ time, for example, when a component is rendered for the first time, or when a
 button has been clicked.
 </p>
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">assert</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'assert/strict'</span><span style="color: #4f97d7;">)</span>;
+<pre class="src src-js"><span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">assert</span> = require<span style="color: #268bd2;">(</span><span style="color: #2aa198;">'assert/strict'</span><span style="color: #268bd2;">)</span>;
 
-<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">createCounter</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">state</span> = <span style="color: #bc6ec5;">{</span> count: <span style="color: #a45bad;">0</span> <span style="color: #bc6ec5;">}</span>;
-    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #bc6ec5;">{</span>
+<span style="color: #268bd2; font-weight: bold;">function</span> <span style="color: #d75fd7; font-weight: bold;">createCounter</span><span style="color: #268bd2;">()</span> <span style="color: #268bd2;">{</span>
+    <span style="color: #268bd2; font-weight: bold;">let</span> <span style="color: #8787d7;">state</span> = <span style="color: #d75fd7;">{</span> count: <span style="color: #d75fd7;">0</span> <span style="color: #d75fd7;">}</span>;
+    <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7;">{</span>
         state,
-        onClick<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
-            state.count += <span style="color: #a45bad;">1</span>;
-        <span style="color: #2d9574;">}</span>,
-        render<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
-            <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
-        <span style="color: #2d9574;">}</span>,
-    <span style="color: #bc6ec5;">}</span>;
-<span style="color: #4f97d7;">}</span>
+        onClick<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
+            state.count += <span style="color: #d75fd7;">1</span>;
+        <span style="color: #2aa198;">}</span>,
+        render<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
+            <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #2aa198;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
+        <span style="color: #2aa198;">}</span>,
+    <span style="color: #d75fd7;">}</span>;
+<span style="color: #268bd2;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">counter</span> = createCounter<span style="color: #4f97d7;">()</span>;
+<span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">counter</span> = createCounter<span style="color: #268bd2;">()</span>;
 
-assert.equal<span style="color: #4f97d7;">(</span>counter.state.count, <span style="color: #a45bad;">0</span><span style="color: #4f97d7;">)</span>;
+assert.equal<span style="color: #268bd2;">(</span>counter.state.count, <span style="color: #d75fd7;">0</span><span style="color: #268bd2;">)</span>;
 
-counter.onClick<span style="color: #4f97d7;">()</span>;
+counter.onClick<span style="color: #268bd2;">()</span>;
 
-assert.equal<span style="color: #4f97d7;">(</span>counter.state.count, <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>;
+assert.equal<span style="color: #268bd2;">(</span>counter.state.count, <span style="color: #d75fd7;">1</span><span style="color: #268bd2;">)</span>;
 </pre>
 </div>
 
-<div class="NOTES" id="org593e195">
+<div class="NOTES" id="org419e07f">
 <p>
 My guess is we do this because when we debug we usually make sure the state is
 correct step by step during the execution of our program.
@@ -140,32 +140,32 @@ it's designed to deliver. In React, this means we should test a component
 delivers the desired HTML code given a known context.
 </p>
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">assert</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'assert/strict'</span><span style="color: #4f97d7;">)</span>;
+<pre class="src src-js"><span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">assert</span> = require<span style="color: #268bd2;">(</span><span style="color: #2aa198;">'assert/strict'</span><span style="color: #268bd2;">)</span>;
 
-<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">createCounter</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">state</span> = <span style="color: #bc6ec5;">{</span> count: <span style="color: #a45bad;">0</span> <span style="color: #bc6ec5;">}</span>;
-    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #bc6ec5;">{</span>
+<span style="color: #268bd2; font-weight: bold;">function</span> <span style="color: #d75fd7; font-weight: bold;">createCounter</span><span style="color: #268bd2;">()</span> <span style="color: #268bd2;">{</span>
+    <span style="color: #268bd2; font-weight: bold;">let</span> <span style="color: #8787d7;">state</span> = <span style="color: #d75fd7;">{</span> count: <span style="color: #d75fd7;">0</span> <span style="color: #d75fd7;">}</span>;
+    <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7;">{</span>
         state,
-        onClick<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
-            state.count += <span style="color: #a45bad;">1</span>;
-        <span style="color: #2d9574;">}</span>,
-        render<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
-            <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
-        <span style="color: #2d9574;">}</span>,
-    <span style="color: #bc6ec5;">}</span>;
-<span style="color: #4f97d7;">}</span>
+        onClick<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
+            state.count += <span style="color: #d75fd7;">1</span>;
+        <span style="color: #2aa198;">}</span>,
+        render<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
+            <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #2aa198;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
+        <span style="color: #2aa198;">}</span>,
+    <span style="color: #d75fd7;">}</span>;
+<span style="color: #268bd2;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">getInnerText</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">html</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">return</span> html.replace<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">/\&lt;p\&gt;|\&lt;\/p\&gt;/</span>gi, <span style="color: #2d9574;">''</span><span style="color: #bc6ec5;">)</span>;
-<span style="color: #4f97d7;">}</span>
+<span style="color: #268bd2; font-weight: bold;">function</span> <span style="color: #d75fd7; font-weight: bold;">getInnerText</span><span style="color: #268bd2;">(</span><span style="color: #8787d7;">html</span><span style="color: #268bd2;">)</span> <span style="color: #268bd2;">{</span>
+    <span style="color: #268bd2; font-weight: bold;">return</span> html.replace<span style="color: #d75fd7;">(</span><span style="color: #2aa198;">/\&lt;p\&gt;|\&lt;\/p\&gt;/</span>gi, <span style="color: #2aa198;">''</span><span style="color: #d75fd7;">)</span>;
+<span style="color: #268bd2;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">counter</span> = createCounter<span style="color: #4f97d7;">()</span>;
+<span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">counter</span> = createCounter<span style="color: #268bd2;">()</span>;
 
-assert.equal<span style="color: #4f97d7;">(</span>getInnerText<span style="color: #bc6ec5;">(</span>counter.render<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">)</span>, <span style="color: #2d9574;">`Clicked 0`</span><span style="color: #4f97d7;">)</span>;
+assert.equal<span style="color: #268bd2;">(</span>getInnerText<span style="color: #d75fd7;">(</span>counter.render<span style="color: #2aa198;">()</span><span style="color: #d75fd7;">)</span>, <span style="color: #2aa198;">`Clicked 0`</span><span style="color: #268bd2;">)</span>;
 
-counter.onClick<span style="color: #4f97d7;">()</span>;
+counter.onClick<span style="color: #268bd2;">()</span>;
 
-assert.equal<span style="color: #4f97d7;">(</span>getInnerText<span style="color: #bc6ec5;">(</span>counter.render<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">)</span>, <span style="color: #2d9574;">`Clicked 1`</span><span style="color: #4f97d7;">)</span>;
+assert.equal<span style="color: #268bd2;">(</span>getInnerText<span style="color: #d75fd7;">(</span>counter.render<span style="color: #2aa198;">()</span><span style="color: #d75fd7;">)</span>, <span style="color: #2aa198;">`Clicked 1`</span><span style="color: #268bd2;">)</span>;
 </pre>
 </div>
 </div>
@@ -182,18 +182,18 @@ purpose.
 Let's examine the <code>counter</code> component.
 </p>
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">createCounter</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">state</span> = <span style="color: #bc6ec5;">{</span> count: <span style="color: #a45bad;">0</span> <span style="color: #bc6ec5;">}</span>;
-    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #bc6ec5;">{</span>
+<pre class="src src-js"><span style="color: #268bd2; font-weight: bold;">function</span> <span style="color: #d75fd7; font-weight: bold;">createCounter</span><span style="color: #268bd2;">()</span> <span style="color: #268bd2;">{</span>
+    <span style="color: #268bd2; font-weight: bold;">let</span> <span style="color: #8787d7;">state</span> = <span style="color: #d75fd7;">{</span> count: <span style="color: #d75fd7;">0</span> <span style="color: #d75fd7;">}</span>;
+    <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7;">{</span>
         state,
-        onClick<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
-            state.count += <span style="color: #a45bad;">1</span>;
-        <span style="color: #2d9574;">}</span>,
-        render<span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
-            <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
-        <span style="color: #2d9574;">}</span>,
-    <span style="color: #bc6ec5;">}</span>;
-<span style="color: #4f97d7;">}</span>
+        onClick<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
+            state.count += <span style="color: #d75fd7;">1</span>;
+        <span style="color: #2aa198;">}</span>,
+        render<span style="color: #2aa198;">()</span> <span style="color: #2aa198;">{</span>
+            <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #2aa198;">`&lt;p&gt;Clicked ${state.count}&lt;/p&gt;`</span>;
+        <span style="color: #2aa198;">}</span>,
+    <span style="color: #d75fd7;">}</span>;
+<span style="color: #268bd2;">}</span>
 </pre>
 </div>
 <p>
@@ -233,42 +233,192 @@ In general, test robustness increases when we test outcomes instead of state.
 </div>
 </div>
 </div>
-<div id="outline-container-org8274060" class="outline-2">
-<h2 id="org8274060"><span class="section-number-2">4.</span> When To Test The Redux <code>connect</code> HOC</h2>
+<div id="outline-container-orgb3d3f25" class="outline-2">
+<h2 id="orgb3d3f25"><span class="section-number-2">4.</span> When To Test The Redux <code>connect</code> HOC</h2>
 <div class="outline-text-2" id="text-4">
+<p>
+Redux is a wonderful state management solution that happens to work pretty well
+when combined with React using the <code>react-redux</code> package. The package provides
+the <code>connect</code> HOC which does what its name implies. When we test a component
+like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript"><span style="color: #268bd2; font-weight: bold;">import</span> React from <span style="color: #2aa198;">'react'</span>;
+<span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #268bd2;">{</span> connect <span style="color: #268bd2;">}</span> from <span style="color: #2aa198;">'react-redux'</span>;
+
+<span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">Prompt</span> = <span style="color: #268bd2;">(</span><span style="color: #d75fd7;">{</span> name <span style="color: #d75fd7;">}</span><span style="color: #268bd2;">)</span> =&gt; <span style="color: #268bd2;">(</span><span style="color: #d75fd7;">&lt;</span><span style="color: #d75fd7; font-weight: bold;">p</span><span style="color: #d75fd7;">&gt;{</span><span style="color: #2aa198;">`Hello ${name}!`</span><span style="color: #d75fd7;">}&lt;</span>/<span style="color: #d75fd7; font-weight: bold;">p</span><span style="color: #d75fd7;">&gt;</span><span style="color: #268bd2;">)</span>;
+
+<span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">mapStateToProps</span> = <span style="color: #268bd2;">(</span>state<span style="color: #268bd2;">)</span> =&gt; <span style="color: #268bd2;">(</span><span style="color: #d75fd7;">{</span> name: state.name <span style="color: #d75fd7;">}</span><span style="color: #268bd2;">)</span>;
+
+<span style="color: #268bd2; font-weight: bold;">export</span> <span style="color: #268bd2; font-weight: bold;">default</span> connect<span style="color: #268bd2;">(</span>mapStateToProps<span style="color: #268bd2;">)(</span>Prompt<span style="color: #268bd2;">)</span>;
+</pre>
 </div>
-<div id="outline-container-org3464608" class="outline-3">
-<h3 id="org3464608"><span class="section-number-3">4.1.</span> Abstract Test Value</h3>
+<p>
+we end up testing 2 things instead of one, making our tests more complex and
+brittle than they needed to be.
+</p>
+</div>
+<div id="outline-container-org5673fdd" class="outline-3">
+<h3 id="org5673fdd"><span class="section-number-3">4.1.</span> Abstract Test Value</h3>
 <div class="outline-text-3" id="text-4-1">
 </div>
-<div id="outline-container-orgd4a591e" class="outline-4">
-<h4 id="orgd4a591e"><span class="section-number-4">4.1.1.</span> Does it render?</h4>
+<div id="outline-container-org9c2232b" class="outline-4">
+<h4 id="org9c2232b"><span class="section-number-4">4.1.1.</span> Does it render?</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+One of the most common unit tests there are, are the ones that check the
+component actually renders with a given set of valid props. If we test the
+default export from the component above, we will end up testing that our Redux
+setup works (either the real deal or a mocked store), that the connect HOC
+doesn't have any logic errors, and that the actual component (<code>Prompt</code>) works.
+To simplify this test, we should export the <code>Prompt</code> component separately and
+test it in isolation with different props combinations.
+</p>
 </div>
-<div id="outline-container-org3748e42" class="outline-4">
-<h4 id="org3748e42"><span class="section-number-4">4.1.2.</span> Does it generate the desired <code>props</code>?</h4>
+</div>
+<div id="outline-container-orge90e0ce" class="outline-4">
+<h4 id="orge90e0ce"><span class="section-number-4">4.1.2.</span> Does it generate the desired <code>props</code>?</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+When we have connected components there's something else beside rendering
+success that could be considered fundamental: testing the main component is
+getting the props it needs. Most of the time, the logic in the <code>mapStateToProps</code>
+function is pretty simple, as it should, thus, writing tests for it should be
+similarily simple. We have to remember exporting it by itself and testing it
+with different inputs to ensure it generates the necessary props.
+</p>
 </div>
 </div>
-<div id="outline-container-org5b7a29c" class="outline-3">
-<h3 id="org5b7a29c"><span class="section-number-3">4.2.</span> Testing the <code>mapStateToProps</code> function</h3>
 </div>
 </div>
 <div id="outline-container-org39e840d" class="outline-2">
 <h2 id="org39e840d"><span class="section-number-2">5.</span> How To Test React Components</h2>
 <div class="outline-text-2" id="text-5">
+<p>
+By adhering to the principle of testing purpose instead of state, we will see
+more clearly the tests a component needs, when using the right tools for the job.
+</p>
 </div>
-<div id="outline-container-org5673fdd" class="outline-3">
-<h3 id="org5673fdd"><span class="section-number-3">5.1.</span> Abstract Test Value</h3>
+<div id="outline-container-orgf15b152" class="outline-3">
+<h3 id="orgf15b152"><span class="section-number-3">5.1.</span> Abstract Test Value</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-org9c2232b" class="outline-4">
-<h4 id="org9c2232b"><span class="section-number-4">5.1.1.</span> Does it render?</h4>
+<div id="outline-container-orge6122bf" class="outline-4">
+<h4 id="orge6122bf"><span class="section-number-4">5.1.1.</span> Does it render?</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+Even when successful rendering is implied in other tests, because a component
+wouldn't fulfill its purpose if it didn't render in the first place, I like
+adding this basic unit test; it is mandatory if you're doing TDD. Now that we
+separated the notion of Redux adapter and React component, we know that we
+should export the component separately and test it in isolation.
+</p>
+</div>
 </div>
 <div id="outline-container-org1c20b3d" class="outline-4">
 <h4 id="org1c20b3d"><span class="section-number-4">5.1.2.</span> Does it generate the desired HTML?</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+Since we control the props we pass to the component while testing, we can assume
+they will be right, so no need to double check them. The purpose of a React
+component is to generate HTML, we should be looking at the DOM or virtual DOM
+for the expected HTML code.
+</p>
+
+<p>
+This means that if we have a component like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript"><span style="color: #268bd2; font-weight: bold;">import</span> React from <span style="color: #2aa198;">'react'</span>;
+<span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #268bd2;">{</span> connect <span style="color: #268bd2;">}</span> from <span style="color: #2aa198;">'react-redux'</span>;
+
+<span style="color: #268bd2; font-weight: bold;">export</span> <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">Prompt</span> = <span style="color: #268bd2;">(</span><span style="color: #d75fd7;">{</span> name <span style="color: #d75fd7;">}</span><span style="color: #268bd2;">)</span> =&gt; <span style="color: #268bd2;">(</span><span style="color: #d75fd7;">&lt;</span><span style="color: #d75fd7; font-weight: bold;">p</span><span style="color: #d75fd7;">&gt;{</span><span style="color: #2aa198;">`Hello ${name}!`</span><span style="color: #d75fd7;">}&lt;</span>/<span style="color: #d75fd7; font-weight: bold;">p</span><span style="color: #d75fd7;">&gt;</span><span style="color: #268bd2;">)</span>;
+
+<span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">mapStateToProps</span> = <span style="color: #268bd2;">(</span>state<span style="color: #268bd2;">)</span> =&gt; <span style="color: #268bd2;">(</span><span style="color: #d75fd7;">{</span> name: state.name <span style="color: #d75fd7;">}</span><span style="color: #268bd2;">)</span>;
+
+<span style="color: #268bd2; font-weight: bold;">export</span> <span style="color: #268bd2; font-weight: bold;">default</span> connect<span style="color: #268bd2;">(</span>mapStateToProps<span style="color: #268bd2;">)(</span>Prompt<span style="color: #268bd2;">)</span>;
+</pre>
+</div>
+<p>
+Our most simple test would look like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript"><span style="color: #268bd2; font-weight: bold;">import</span> React from <span style="color: #2aa198;">'react'</span>;
+<span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #268bd2;">{</span> render <span style="color: #268bd2;">}</span> from <span style="color: #2aa198;">'@testing-library/react'</span>;
+<span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #268bd2;">{</span> Prompt <span style="color: #268bd2;">}</span> from <span style="color: #2aa198;">'./Prompt'</span>;
+
+describe<span style="color: #268bd2;">(</span><span style="color: #2aa198;">"&lt;Prompt /&gt;"</span>, <span style="color: #d75fd7;">()</span> =&gt; <span style="color: #d75fd7;">{</span>
+  describe<span style="color: #2aa198;">(</span><span style="color: #2aa198;">"when provided complete and valid props"</span>, <span style="color: #67b11d;">()</span> =&gt; <span style="color: #67b11d;">{</span>
+    it<span style="color: #875f00;">(</span><span style="color: #2aa198;">"renders correctly"</span>, <span style="color: #268bd2;">()</span> =&gt; <span style="color: #268bd2;">{</span>
+      <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">name</span> = <span style="color: #2aa198;">"Mario"</span>;
+      <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">wrapper</span> = render<span style="color: #d75fd7;">(</span><span style="color: #2aa198;">&lt;</span><span style="color: #d75fd7; font-weight: bold;">Prompt</span> <span style="color: #8787d7;">name</span>=<span style="color: #887070;">{</span>name<span style="color: #887070;">}</span> /<span style="color: #2aa198;">&gt;</span><span style="color: #d75fd7;">)</span>;
+      expect<span style="color: #d75fd7;">(</span>wrapper.findByText<span style="color: #2aa198;">(</span>name<span style="color: #2aa198;">)</span><span style="color: #d75fd7;">)</span>.toBeInTheDocument<span style="color: #d75fd7;">()</span>;
+    <span style="color: #268bd2;">}</span><span style="color: #875f00;">)</span>;
+  <span style="color: #67b11d;">}</span><span style="color: #2aa198;">)</span>;
+<span style="color: #d75fd7;">}</span><span style="color: #268bd2;">)</span>;
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="outline-container-org03937ba" class="outline-3">
 <h3 id="org03937ba"><span class="section-number-3">5.2.</span> Testing The Outcomes</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Now assume a little more complex component:
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript"><span style="color: #268bd2; font-weight: bold;">import</span> React, <span style="color: #268bd2;">{</span> useState <span style="color: #268bd2;">}</span> from <span style="color: #2aa198;">'react'</span>;
+<span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #268bd2;">{</span> connect <span style="color: #268bd2;">}</span> from <span style="color: #2aa198;">'react-redux'</span>;
+
+<span style="color: #268bd2; font-weight: bold;">export</span> <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">Prompt</span> = <span style="color: #268bd2;">(</span><span style="color: #d75fd7;">{</span> name <span style="color: #d75fd7;">}</span><span style="color: #268bd2;">)</span> =&gt; <span style="color: #268bd2;">{</span>
+  <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #d75fd7;">[</span><span style="color: #8787d7;">loggedIn</span>, <span style="color: #8787d7;">setLoggedIn</span><span style="color: #d75fd7;">]</span> = useState<span style="color: #d75fd7;">(</span><span style="color: #d75fd7;">false</span><span style="color: #d75fd7;">)</span>;
+  <span style="color: #268bd2; font-weight: bold;">return</span> <span style="color: #d75fd7;">(</span><span style="color: #2aa198;">&lt;&gt;</span>
+<span style="color: #b2b2b2; background-color: nil;">    </span><span style="color: #2aa198;">&lt;</span><span style="color: #d75fd7; font-weight: bold;">p</span><span style="color: #2aa198;">&gt;{</span>loggedIn ? <span style="color: #2aa198;">`Hello ${name}!`</span> : <span style="color: #2aa198;">"Hello stranger"</span><span style="color: #2aa198;">}&lt;</span>/<span style="color: #d75fd7; font-weight: bold;">p</span><span style="color: #2aa198;">&gt;</span>
+<span style="color: #b2b2b2; background-color: nil;">    </span><span style="color: #2aa198;">&lt;</span><span style="color: #d75fd7; font-weight: bold;">button</span> <span style="color: #8787d7;">onClick</span>=<span style="color: #67b11d;">{</span><span style="color: #875f00;">()</span> =&gt; setLoggedIn<span style="color: #875f00;">(</span>!loggedIn<span style="color: #875f00;">)</span><span style="color: #67b11d;">}</span><span style="color: #2aa198;">&gt;</span><span style="color: #b2b2b2; background-color: nil;">click</span><span style="color: #2aa198;">&lt;</span>/<span style="color: #d75fd7; font-weight: bold;">button</span><span style="color: #2aa198;">&gt;</span><span style="color: #b2b2b2; background-color: nil;">;</span>
+<span style="color: #b2b2b2; background-color: nil;">  </span><span style="color: #2aa198;">&lt;</span>/<span style="color: #2aa198;">&gt;</span><span style="color: #d75fd7;">)</span>;
+<span style="color: #268bd2;">}</span>;
+
+<span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">mapStateToProps</span> = <span style="color: #268bd2;">(</span>state<span style="color: #268bd2;">)</span> =&gt; <span style="color: #268bd2;">(</span><span style="color: #d75fd7;">{</span> name: state.name <span style="color: #d75fd7;">}</span><span style="color: #268bd2;">)</span>;
+
+<span style="color: #268bd2; font-weight: bold;">export</span> <span style="color: #268bd2; font-weight: bold;">default</span> connect<span style="color: #268bd2;">(</span>mapStateToProps<span style="color: #268bd2;">)(</span>Prompt<span style="color: #268bd2;">)</span>;
+</pre>
+</div>
+
+<p>
+The following test would excercise both logic branches:
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript"><span style="color: #268bd2; font-weight: bold;">import</span> React from <span style="color: #2aa198;">'react'</span>;
+<span style="color: #268bd2; font-weight: bold;">import</span> userEvent from <span style="color: #2aa198;">'@testing-library/user-event'</span>;
+<span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #268bd2;">{</span> render <span style="color: #268bd2;">}</span> from <span style="color: #2aa198;">'@testing-library/react'</span>;
+<span style="color: #268bd2; font-weight: bold;">import</span> <span style="color: #268bd2;">{</span> Prompt <span style="color: #268bd2;">}</span> from <span style="color: #2aa198;">'./Prompt'</span>;
+
+describe<span style="color: #268bd2;">(</span><span style="color: #2aa198;">"&lt;Prompt /&gt;"</span>, <span style="color: #d75fd7;">()</span> =&gt; <span style="color: #d75fd7;">{</span>
+  describe<span style="color: #2aa198;">(</span><span style="color: #2aa198;">"when provided complete and valid props"</span>, <span style="color: #67b11d;">()</span> =&gt; <span style="color: #67b11d;">{</span>
+    it<span style="color: #875f00;">(</span><span style="color: #2aa198;">"renders correctly"</span>, <span style="color: #268bd2;">()</span> =&gt; <span style="color: #268bd2;">{</span>
+      <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">name</span> = <span style="color: #2aa198;">"Mario"</span>;
+      <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">wrapper</span> = render<span style="color: #d75fd7;">(</span><span style="color: #2aa198;">&lt;</span><span style="color: #d75fd7; font-weight: bold;">Prompt</span> <span style="color: #8787d7;">name</span>=<span style="color: #887070;">{</span>name<span style="color: #887070;">}</span> /<span style="color: #2aa198;">&gt;</span><span style="color: #d75fd7;">)</span>;
+      expect<span style="color: #d75fd7;">(</span>wrapper.findByText<span style="color: #2aa198;">(</span>name<span style="color: #2aa198;">)</span><span style="color: #d75fd7;">)</span>.toBeInTheDocument<span style="color: #d75fd7;">()</span>;
+    <span style="color: #268bd2;">}</span><span style="color: #875f00;">)</span>;
+
+    it<span style="color: #875f00;">(</span><span style="color: #2aa198;">"has a generic greeting"</span>, <span style="color: #268bd2;">()</span> =&gt; <span style="color: #268bd2;">{</span>
+      <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">name</span> = <span style="color: #2aa198;">"Mario"</span>;
+      <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">wrapper</span> = render<span style="color: #d75fd7;">(</span><span style="color: #2aa198;">&lt;</span><span style="color: #d75fd7; font-weight: bold;">Prompt</span> <span style="color: #8787d7;">name</span>=<span style="color: #887070;">{</span>name<span style="color: #887070;">}</span> /<span style="color: #2aa198;">&gt;</span><span style="color: #d75fd7;">)</span>;
+      expect<span style="color: #d75fd7;">(</span>wrapper.findByText<span style="color: #2aa198;">(</span><span style="color: #2aa198;">/stranger/</span><span style="color: #2aa198;">)</span><span style="color: #d75fd7;">)</span>.toBeInTheDocument<span style="color: #d75fd7;">()</span>;
+    <span style="color: #268bd2;">}</span><span style="color: #875f00;">)</span>;
+
+    describe<span style="color: #875f00;">(</span><span style="color: #2aa198;">"when the button is clicked once"</span>, <span style="color: #268bd2;">()</span> =&gt; <span style="color: #268bd2;">{</span>
+      <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">name</span> = <span style="color: #2aa198;">"Mario"</span>;
+      <span style="color: #268bd2; font-weight: bold;">const</span> <span style="color: #8787d7;">wrapper</span> = render<span style="color: #d75fd7;">(</span><span style="color: #2aa198;">&lt;</span><span style="color: #d75fd7; font-weight: bold;">Prompt</span> <span style="color: #8787d7;">name</span>=<span style="color: #887070;">{</span>name<span style="color: #887070;">}</span> /<span style="color: #2aa198;">&gt;</span><span style="color: #d75fd7;">)</span>;
+      userEvent.click<span style="color: #d75fd7;">(</span>wrapper.findByText<span style="color: #2aa198;">(</span><span style="color: #2aa198;">/click/</span><span style="color: #2aa198;">)</span><span style="color: #d75fd7;">)</span>;
+      expect<span style="color: #d75fd7;">(</span>wrapper.findByText<span style="color: #2aa198;">(</span>name<span style="color: #2aa198;">)</span><span style="color: #d75fd7;">)</span>.toBeInTheDocument<span style="color: #d75fd7;">()</span>;
+    <span style="color: #268bd2;">}</span><span style="color: #875f00;">)</span>;
+  <span style="color: #67b11d;">}</span><span style="color: #2aa198;">)</span>;
+<span style="color: #d75fd7;">}</span><span style="color: #268bd2;">)</span>;
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="outline-container-org6c418bd" class="outline-2">
